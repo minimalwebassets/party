@@ -4,57 +4,66 @@ import {
   Typography,
   Container,
   Box,
-  Paper,
   withStyles,
 } from '@material-ui/core';
-import { Grain } from '@material-ui/icons';
 import Nav from './Nav';
 import useIsMobile from './useIsMobile';
 
-const HeroPaper = withStyles(
+const HeroTypography = withStyles(
   (theme) => ({
     root: {
-      zIndex: theme.zIndex.appBar + 1,
-      position: 'relative',
+      fontFamily: 'Bangers',
+      color: 'rgba(0, 0, 0, 0.9)',
+      textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white',
     },
   }),
-)(Paper);
+)(Typography);
 
-export default function Hero({ title, subtitle }) {
+const rgbaAsImage = (r, g, b, a) => {
+  const color = `rgba(${r}, ${g}, ${b}, ${a})`;
+  return `linear-gradient(${color}, ${color})`;
+}
+
+export default function Hero() {
   const isMobile = useIsMobile();
   return (
-    <>
-      <HeroPaper elevation={0} square>
-        <Container maxWidth={isMobile ? 'sm' : 'md'}>
-          <Box
-            height="30vh"
-            display="flex"
-            flexDirection="column"
-            justifyContent="center"
+    <Box
+      style={{
+        background: `${rgbaAsImage(255, 255, 255, 0.2)}, url("titlepicture.jpg") 50% 50%`,
+        backgroundSize: 'cover',
+      }}
+    >
+      <Container maxWidth={isMobile ? 'sm' : 'md'}>
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          textAlign="center"
+          height="90vh"
+        >
+          <HeroTypography
+            component="h1"
           >
-            <Grain
-              color="secondary"
-              fontSize="large"
-            />
-            <Box pt={isMobile ? 3 : 5} pb={1}>
-              <Typography
-                variant={isMobile ? 'h5' : 'h2'}
-                component="h1"
-              >
-                {title}
-              </Typography>
+            <Box
+              display="flex"
+              justifyContent="center"
+            >
+              <HeroTypography variant={isMobile ? 'h5' : 'h2'} >
+                The
+              </HeroTypography>
+              <Box fontSize={isMobile ? '10pt' : '128pt'} >
+                Party
+              </Box>
+              <Box alignSelf="flex-end">
+                <HeroTypography variant={isMobile ? 'h5' : 'h1'} >
+                  Location
+                </HeroTypography>
+              </Box>
             </Box>
-            <Typography variant={isMobile ? 'body2' : 'h5'}>
-              {subtitle}
-            </Typography>
-          </Box>
-        </Container>
-      </HeroPaper>
+          </HeroTypography>
+        </Box>
+      </Container>
       <Nav />
-    </>
+    </Box>
   );
 }
-Hero.propTypes = {
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
-};
