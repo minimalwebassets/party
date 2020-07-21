@@ -52,7 +52,6 @@ export default function Nav() {
                     <Box mx={1} key={path}>
                       <Link href={path} passHref>
                         <Button
-                          color="textPrimary"
                           size={isMobile ? 'small' : 'medium'}
                           component="a"
                         >

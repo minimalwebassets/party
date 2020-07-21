@@ -27,43 +27,45 @@ const rgbaAsImage = (r, g, b, a) => {
 export default function Hero() {
   const isMobile = useIsMobile();
   return (
-    <Box
-      style={{
-        background: `${rgbaAsImage(255, 255, 255, 0.2)}, url("titlepicture.jpg") 50% 50%`,
-        backgroundSize: 'cover',
-      }}
-    >
-      <Container maxWidth={isMobile ? 'sm' : 'md'}>
-        <Box
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          textAlign="center"
-          height="90vh"
-        >
-          <HeroTypography
-            component="h1"
+    <>
+      <Box
+        style={{
+          background: `${rgbaAsImage(255, 255, 255, 0.2)}, url("titlepicture.jpg") 50% 50%`,
+          backgroundSize: 'cover',
+        }}
+      >
+        <Container maxWidth={isMobile ? 'sm' : 'md'}>
+          <Box
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            textAlign="center"
+            height="90vh"
           >
-            <Box
-              display="flex"
-              justifyContent="center"
+            <HeroTypography
+              component="h1"
             >
-              <HeroTypography variant={isMobile ? 'h5' : 'h2'} >
-                The
-              </HeroTypography>
-              <Box fontSize={isMobile ? '10pt' : '128pt'} >
-                Party
-              </Box>
-              <Box alignSelf="flex-end">
-                <HeroTypography variant={isMobile ? 'h5' : 'h1'} >
-                  Location
+              <Box
+                display="flex"
+                justifyContent="center"
+              >
+                <HeroTypography variant={isMobile ? 'h5' : 'h2'} >
+                  The
                 </HeroTypography>
+                <Box fontSize={isMobile ? '10pt' : '128pt'} >
+                  Party
+                </Box>
+                <Box alignSelf="flex-end">
+                  <HeroTypography variant={isMobile ? 'h5' : 'h1'} >
+                    Location
+                  </HeroTypography>
+                </Box>
               </Box>
-            </Box>
-          </HeroTypography>
-        </Box>
-      </Container>
+            </HeroTypography>
+          </Box>
+        </Container>
+      </Box>
       <Nav />
-    </Box>
+    </>
   );
 }
