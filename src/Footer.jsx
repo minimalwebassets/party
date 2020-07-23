@@ -1,75 +1,105 @@
 import React from 'react';
 import {
-  Paper,
   Typography,
   Container,
   Box,
   Link as MuiLink,
+  withStyles,
 } from '@material-ui/core';
-import { navItems } from './Nav';
-import Link from './Link';
+import {
+  Instagram,
+  Facebook,
+  KeyboardArrowUp,
+} from '@material-ui/icons';
 import useIsMobile from './useIsMobile';
+
+const BoxOutline = withStyles(
+  (theme) => ({
+    root: {
+      borderTop: `2px solid ${theme.palette.secondary.main}`,
+      borderBottom: `2px solid ${theme.palette.secondary.main}`,
+    },
+  }),
+)(Box);
 
 export default function Footer() {
   const isMobile = useIsMobile();
   return (
-    <Paper square component="footer">
+    <BoxOutline component="footer">
       <Container maxWidth={isMobile ? 'xs' : 'md'}>
         <Box
           display="flex"
-          justifyContent={isMobile ? 'space-between' : 'space-around'}
+          justifyContent="space-between"
           alignItems="flex-start"
-          pt={5}
-          pb={8}
+          pt={6}
+          pb={4}
+          pr={2}
         >
-          {
-            [
-              {
-                title: 'Navigate',
-                items: navItems,
-              },
-              {
-                title: 'About',
-                items: [
-                  { label: 'Us', path: '/about' },
-                  { label: 'Privacy', path: '/about/privacy' },
-                ],
-              },
-              {
-                title: 'Social',
-                items: [
-                  { label: 'Reddit', path: 'https://www.reddit.com/r/MinimalWebAssets', isExternal: true },
-                  { label: 'Instagram', path: 'https://www.instagram.com/skyrandsauerkraut/', isExternal: true },
-                ],
-              },
-            ].map(({ title, items }) => (
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="space-evenly"
+            width={isMobile ? 'auto' : '60%'}
+            flexGrow={isMobile ? 1 : 0}
+          >
+            {!isMobile && (
+              <Typography variant="caption" color="textSecondary">
+                Follow us on:
+              </Typography>
+            )}
+            <MuiLink
+              href="https://www.instagram.com/"
+              variant="body1"
+              rel="external"
+              target="_blank"
+              color="textPrimary"
+            >
               <Box
                 display="flex"
-                flexDirection="column"
-                key={title}
+                alignItems="center"
               >
-                <Typography variant="caption" color="textSecondary" gutterBottom>
-                  {title}
-                </Typography>
-                {
-                  items.map(({ label, path, isExternal }) => (
-                    <MuiLink
-                      key={label}
-                      href={path}
-                      variant="body1"
-                      component={isExternal ? 'a' : Link}
-                      rel={isExternal ? 'external' : ''}
-                      target={isExternal ? '_blank' : '_self'}
-                    >
-                      {label}
-                    </MuiLink>
-                  ))
-                }
+                <Instagram
+                  color="secondary"
+                  fontSize="small"
+                />
+                <Box pl={1}>
+                  Instagram
+                </Box>
               </Box>
-            ))
-          }
+            </MuiLink>
+            <MuiLink
+              href="https://www.facebook.com/"
+              variant="body1"
+              rel="external"
+              target="_blank"
+              color="textPrimary"
+            >
+              <Box
+                display="flex"
+                alignItems="center"
+              >
+                <Facebook
+                  color="secondary"
+                  fontSize="small"
+                />
+                <Box pl={1}>
+                  Facebook
+                </Box>
+              </Box>
+            </MuiLink>
+          </Box>
+          <MuiLink
+            href="#"
+            variant="body1"
+            color="textPrimary"
+          >
+            <KeyboardArrowUp
+              color="secondary"
+              fontSize="large"
+            />
+          </MuiLink>
         </Box>
       </Container>
-    </Paper>
+    </BoxOutline>
   );
 }

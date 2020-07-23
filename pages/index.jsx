@@ -1,49 +1,59 @@
 import React from 'react';
 import {
-  Typography,
-  Container,
   Box,
+  makeStyles,
 } from '@material-ui/core';
 import Hero from '../src/Hero';
+import UpcomingEvents from '../src/UpcomingEvents';
+import Gallery from '../src/Gallery';
+import Reservation from '../src/Reservation';
+import AboutUs from '../src/AboutUs';
 import Footer from '../src/Footer';
-import IndexCard from '../src/IndexCard';
 import useIsMobile from '../src/useIsMobile';
+
+const rgbaAsImage = (r, g, b, a) => {
+  const color = `rgba(${r}, ${g}, ${b}, ${a})`;
+  return `linear-gradient(${color}, ${color})`;
+};
+
+const useStyles = makeStyles({
+  confetti: {
+    background: `${rgbaAsImage(255, 255, 255, 0.2)}, url("confetti.jpg") 50% 50%`,
+    backgroundSize: 'cover',
+  },
+  concert: {
+    background: `${rgbaAsImage(255, 255, 255, 0.2)}, url("concert.jpg") 50% 90%`,
+    backgroundSize: 'cover',
+  },
+  dj: {
+    background: `${rgbaAsImage(255, 255, 255, 0.2)}, url("dj.jpg") 50% 90%`,
+    backgroundSize: 'cover',
+  },
+});
 
 export default function Index() {
   const isMobile = useIsMobile();
+  const classes = useStyles();
 
   return (
     <Box>
       <Hero />
-      <Box color="primary.contrastText">
-        <Container maxWidth={isMobile ? 'xs' : 'lg'}>
-          <Box
-            display="flex"
-            alignItems="center"
-            flexDirection="column"
-            pt={isMobile ? 8 : 16}
-            pb={isMobile ? 4 : 8}
-          >
-            <Typography
-              variant={isMobile ? 'h4' : 'h2'}
-              component="h2"
-              color="inherit"
-            >
-              Take your websites to
-              <Typography variant="inherit" color="secondary">
-                &nbsp;the next level
-              </Typography>
-            </Typography>
-          </Box>
-          <Box
-            display="flex"
-            justifyContent="space-evenly"
-            flexDirection={isMobile ? 'column-reverse' : 'row'}
-            pb={isMobile ? 8 : 16}
-          >
-          </Box>
-        </Container>
-      </Box>
+      <UpcomingEvents />
+      <Box
+        height={isMobile ? 200 : 400}
+        className={classes.confetti}
+      />
+      <Gallery />
+      <Box
+        height={isMobile ? 200 : 400}
+        className={classes.concert}
+      />
+      <Reservation />
+      <Box
+        height={isMobile ? 200 : 400}
+        className={classes.dj}
+      />
+      <AboutUs />
       <Footer />
     </Box>
   );

@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import {
   AppBar,
   Toolbar,
@@ -14,24 +13,21 @@ import useIsMobile from './useIsMobile';
 
 const navItems = [
   { label: 'Home', path: '/' },
-  { label: 'Upcoming Events', path: '/' },
-  { label: 'Gallery', path: '/' },
-  { label: 'Reservation', path: '/' },
-  { label: 'About Us', path: '/' },
+  { label: 'Upcoming Events', path: '#UpcomingEvents' },
+  { label: 'Gallery', path: '#Gallery' },
+  { label: 'Reservation', path: '#Reservation' },
+  { label: 'About Us', path: '#AboutUs' },
 ];
 
 const AppBarOutline = withStyles(
   (theme) => ({
     root: {
-      borderTop: `2px solid ${theme.palette.secondary.main}`,
       borderBottom: `2px solid ${theme.palette.secondary.main}`,
     },
   }),
 )(AppBar);
 
-// When the nav gets too big for mobile, move buttons into hamburger/drawer menu
 export default function Nav() {
-  const router = useRouter();
   const isMobile = useIsMobile();
   return (
     <>
