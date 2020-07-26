@@ -27,6 +27,13 @@ export default class MyDocument extends Document {
           />
         </Head>
         <body>
+          <style jsx global>
+            {`
+              html {
+                scroll-behavior: smooth;
+              }
+            `}
+          </style>
           <Main />
           <NextScript />
         </body>
