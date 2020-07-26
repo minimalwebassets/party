@@ -95,6 +95,7 @@ export default function Gallery() {
                     <ButtonBase
                       component={GridListTile}
                       onClick={(event) => handleOpen(event, src)}
+                      key={src}
                     >
                       <img src={src} alt="" />
                     </ButtonBase>

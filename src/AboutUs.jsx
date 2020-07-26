@@ -57,9 +57,16 @@ export default function AboutUs() {
               alt=""
             />
             <Typography>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-              It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-              Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+              It&apos;s our priority to let our guests experience an unforgettable evening. Our skilled staff will lead you through any of our events and fulfill every customer request. You will not only be catered with our excellent food and drink selection but you will be provided with great music and a beautiful ambience.
+            </Typography>
+            <Typography>
+              Next to public events organized by the &ldquo;party-location&rdquo; team we are happy to host your private events in our halls. If you still need a location for a 50th-birthday party, a graduation party or you want to celebrate a milestone in your company then we are here for you.
+            </Typography>
+            <Typography>
+              Since 1988, the party location has hosted events of all kinds. Superstars like Queen, Madonna, Kurt Cobain, Amy Winehouse, Donald Duck, and many more have already spent some unforgettable nights here and enjoyed the flexibility and excellence of our service. This year, we decided to upgrade our location and redesign our interior to bring your party to the next level.
+            </Typography>
+            <Typography>
+              Of course, we would like to receive your feedback to make this a great place to be for everyone.
             </Typography>
           </Box>
         </Paper>

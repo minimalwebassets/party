@@ -38,7 +38,7 @@ export default function UpcomingEvents() {
               title,
               description,
             }, i) => (
-              <>
+              <Box key={title}>
                 <Box
                   display="flex"
                   flexDirection={isMobile ? 'column' : 'row'}
@@ -88,7 +88,7 @@ export default function UpcomingEvents() {
                     </Box>
                   )
                 }
-              </>
+              </Box>
             ))
           }
         </Paper>
